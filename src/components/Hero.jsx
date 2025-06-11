@@ -41,7 +41,7 @@ const Hero = () => {
                         <Player
                             autoplay
                             loop
-                            src="https://lottie.host/bf442509-87df-4818-92cf-77f456e007aa/LrntrFeha6.json"
+                            src={heroAnimation}
                             style={{ height: '1000px', width: '1000px' }}
                         />
                     </motion.div>

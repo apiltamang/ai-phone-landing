@@ -81,7 +81,7 @@ const Capabilities = () => {
                     whileInView="onscreen"
                     viewport={{ once: true, amount: 0.5 }}
                     variants={cardVariants}
-                    className="bg-slate-800 p-8 rounded-2xl border border-slate-700 hover:border-brand-primary transition-colors"
+                    className="bg-slate-800 p-8 rounded-2xl border border-slate-700 hover:border-brand-primary transition-colors flex flex-col items-center text-center" // Added flex-col and items-center
                 >
                   <div className="flex items-center justify-center h-16 w-16 bg-slate-700 rounded-full mb-6">
                     {/* 2. Conditionally render the Lottie Player or the icon */}
@@ -90,7 +90,7 @@ const Capabilities = () => {
                             autoplay
                             loop
                             src={cap.lottieAnimation}
-                            style={{ height: '64px', width: '64px' }} // Make player fit the container
+                            style={{ height: '120px', width: '120px' }} // Make player fit the container
                         />
                     ) : (
                         cap.icon

@@ -4,9 +4,9 @@ import { motion } from 'framer-motion';
 import { Check } from 'lucide-react';
 
 const plans = [
-  { name: "Starter", price: "For Small Teams", features: ["Basic AI Agent", "1 Phone Number", "500 Calls/mo"] },
-  { name: "Pro", price: "For Growing Businesses", features: ["Advanced AI Agent", "5 Phone Numbers", "2,500 Calls/mo", "Calendar Integration"], popular: true },
-  { name: "Enterprise", price: "For Large Scale", features: ["Custom AI Models", "Unlimited Numbers", "Dedicated Support", "API & Webhooks"] }
+  { name: "Starter", price: "For Small Teams", features: ["Basic AI Agent", "1 Support AI Agent", "100 minutes/mo", "Calendar Integration"] },
+  { name: "Pro", price: "For Growing Businesses", features: ["Advanced AI Agent", "4 Concurrent AI Agents", "2,000 minutes/mo", "One Calendar Integration", "Call Forwarding", "Custom Company FAQs"], popular: true },
+  { name: "Enterprise", price: "For Large Scale", features: ["Custom AI Models", "10 Concurrent AI Agents", "Unlimited minutes", "Advanced Calendar Integration", "Call Forwarding", "Custom Company FAQs", "Forms Builder", "Custom API & Webhooks Integration"] }
 ];
 
 const Pricing = () => {

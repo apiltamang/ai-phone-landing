@@ -25,8 +25,8 @@ const Hero = () => {
                         <h1 className="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-4">
                             Turn Your Phone Into an <span className="text-brand-primary">AI Powerhouse</span>.
                         </h1>
-                        <p className="text-lg md:text-xl text-slate-400 mb-8">
-                            Our plug-and-play AI voice agent handles customer calls, schedules appointments, and integrates with your business data 24/7.
+                        <p className="text-xl md:text-2xl font-bold mb-8 bg-gradient-to-r from-emerald-500 to-rose-500 text-transparent bg-clip-text">
+                            Because every call is a potential lead, an enterprising customer, a brand ambassador!
                         </p>
                         <motion.button
                             whileHover={{ scale: 1.05 }}

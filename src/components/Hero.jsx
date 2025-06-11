@@ -1,44 +1,55 @@
-import { Player } from '@lottiefiles/react-lottie-player';
+// src/components/Hero.jsx
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { Player } from '@lottiefiles/react-lottie-player';
+import Modal from './Modal';
+import heroAnimation from '../assets/lottie/hero-animation.json';
 
-export default function Hero({ onOpen }) {
-  return (
-    <header className="flex flex-col md:flex-row items-center justify-between min-h-screen px-6 md:px-16">
-      <motion.div
-        initial={{ opacity: 0, y: 24 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="max-w-xl"
-      >
-        <h1 className="text-4xl md:text-5xl font-bold mb-4">
-          Turn Your Phone Into an <span className="text-blue-600">AI Powerhouse</span>
-        </h1>
-        <p className="text-lg md:text-xl mb-8">
-          Instantly add a 24/7 AI voice agent that answers, books, and delights—no new hardware
-          required.
-        </p>
-        <button
-          onClick={onOpen}
-          className="px-6 py-3 rounded-2xl bg-blue-600 text-white font-semibold shadow-lg hover:bg-blue-700 focus:outline-none"
-        >
-          Get Early Access
-        </button>
-      </motion.div>
+const Hero = () => {
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
-      <motion.div
-        initial={{ opacity: 0, x: 50 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.8 }}
-        className="w-full md:w-1/2 mt-12 md:mt-0"
-      >
-        <Player
-          src="/src/assets/hero-wave.json"
-          autoplay
-          loop
-          style={{ height: '400px', width: '400px' }}
-          aria-label="Animated phone waveform"
-        />
-      </motion.div>
-    </header>
-  );
-}
+    return (
+        <>
+            <section className="min-h-screen flex items-center bg-slate-900">
+                <div className="container mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
+                    <motion.div
+                        initial={{ opacity: 0, x: -50 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.8 }}
+                    >
+                        <h1 className="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-4">
+                            Turn Your Phone Into an <span className="text-brand-primary">AI Powerhouse</span>.
+                        </h1>
+                        <p className="text-lg md:text-xl text-slate-400 mb-8">
+                            Our plug-and-play AI voice agent handles customer calls, schedules appointments, and integrates with your business data 24/7.
+                        </p>
+                        <motion.button
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            onClick={() => setIsModalOpen(true)}
+                            className="bg-brand-primary text-white font-bold text-lg px-8 py-4 rounded-xl shadow-lg shadow-brand-primary/30 hover:bg-brand-primary/90 transition-all"
+                        >
+                            Get Early Access
+                        </motion.button>
+                    </motion.div>
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.8, delay: 0.2 }}
+                        className="hidden md:block"
+                    >
+                        <Player
+                            autoplay
+                            loop
+                            src={heroAnimation}
+                            style={{ height: '500px', width: '500px' }}
+                        />
+                    </motion.div>
+                </div>
+            </section>
+            <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+        </>
+    );
+};
+
+export default Hero;

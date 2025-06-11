@@ -1,79 +1,95 @@
-import { Player } from '@lottiefiles/react-lottie-player';
-import { Bot, BookOpen, CalendarClock, Share2, FileText, Plug } from 'lucide-react';
+// src/components/Capabilities.jsx
+import React from 'react';
 import { motion } from 'framer-motion';
+import { Bot, BrainCircuit, CalendarDays, PhoneForwarded, FileText, Blocks } from 'lucide-react';
 
-const features = [
+const capabilities = [
   {
-    title: 'AI-Based Customer Representative',
-    subtitle: 'Natural, friendly voice support 24/7.',
-    bullets: ['Answers FAQs', 'Handles multiple callers', 'Learns tones'],
-    icon: Bot,
+    icon: <Bot size={32} className="text-brand-primary" />,
+    title: "AI Customer Representative",
+    subtitle: "Your 24/7 front-line support.",
+    description: ["Answers common questions.", "Provides instant, friendly responses.", "Never misses a call."]
   },
   {
-    title: 'Ingest & Understand Data',
-    subtitle: 'Upload docs, CSVs, FAQs—agent trains in minutes.',
-    bullets: ['Smart search', 'Automatic updates', 'Secure storage'],
-    icon: BookOpen,
+    icon: <BrainCircuit size={32} className="text-brand-primary" />,
+    title: "Ingest & Understand Data",
+    subtitle: "Learns from your business documents.",
+    description: ["Understands FAQs, policies, and product info.", "Provides accurate, context-aware answers."]
   },
   {
-    title: 'Appointment Scheduling',
-    subtitle: 'Real-time conflict detection & reminders.',
-    bullets: ['Google/Outlook sync', 'SMS/email confirms'],
-    icon: CalendarClock,
+    icon: <CalendarDays size={32} className="text-brand-primary" />,
+    title: "Appointment Scheduling",
+    subtitle: "Books meetings intelligently.",
+    description: ["Integrates with your calendar.", "Detects and avoids scheduling conflicts."]
   },
   {
-    title: 'Call Forwarding',
-    subtitle: 'Seamless hand-off to live staff.',
-    bullets: ['Department routing', 'Warm transfer'],
-    icon: Share2,
+    icon: <PhoneForwarded size={32} className="text-brand-primary" />,
+    title: "Smart Call Forwarding",
+    subtitle: "Routes calls to the right person.",
+    description: ["Understands caller intent.", "Connects to internal departments seamlessly."]
   },
   {
-    title: 'Auto-Fill Forms',
-    subtitle: 'Capture caller info & push to CRM.',
-    bullets: ['No-code mapping', 'Error-free entries'],
-    icon: FileText,
+    icon: <FileText size={32} className="text-brand-primary" />,
+    title: "Auto-Fill Forms",
+    subtitle: "Captures information from conversations.",
+    description: ["Populates CRM fields from caller responses.", "Reduces manual data entry."]
   },
   {
-    title: 'Custom AI Integrations',
-    subtitle: 'Connect any webhook or API.',
-    bullets: ['Zapier friendly', 'Developer SDK'],
-    icon: Plug,
-  },
+    icon: <Blocks size={32} className="text-brand-primary" />,
+    title: "Custom AI Integrations",
+    subtitle: "Connects to your existing tools.",
+    description: ["Uses webhooks and APIs for custom workflows.", "Extends functionality to any system."]
+  }
 ];
 
-export default function Capabilities() {
+const cardVariants = {
+  offscreen: {
+    y: 50,
+    opacity: 0
+  },
+  onscreen: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      type: "spring",
+      bounce: 0.4,
+      duration: 0.8
+    }
+  }
+};
+
+const Capabilities = () => {
   return (
-    <section id="capabilities" className="py-20 bg-gray-50">
-      <div className="max-w-6xl mx-auto px-6 text-center">
-        <h2 className="text-3xl font-bold mb-12">Capabilities</h2>
-        <div className="grid gap-8 md:grid-cols-3">
-          {features.map((f, i) => (
-            <motion.div
-              key={f.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="bg-white rounded-2xl p-8 shadow-md"
-            >
-              {f.icon ? (
-                <f.icon className="w-10 h-10 mx-auto text-blue-600 mb-4" aria-hidden="true" />
-              ) : (
-                <Player src={f.lottie} autoplay loop style={{ height: 60 }} />
-              )}
-              <h3 className="font-semibold mb-2">{f.title}</h3>
-              <p className="text-sm text-gray-600 mb-4">{f.subtitle}</p>
-              <ul className="text-sm text-left space-y-1">
-                {f.bullets.map((b) => (
-                  <li key={b} className="before:content-['•'] before:mr-2">
-                    {b}
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-          ))}
+      <section id="capabilities" className="bg-slate-800/50">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-extrabold text-white">Powerful Capabilities, Simple Setup</h2>
+            <p className="text-lg text-slate-400 mt-2">Everything you need to automate your business communications.</p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {capabilities.map((cap, index) => (
+                <motion.div
+                    key={index}
+                    initial="offscreen"
+                    whileInView="onscreen"
+                    viewport={{ once: true, amount: 0.5 }}
+                    variants={cardVariants}
+                    className="bg-slate-800 p-8 rounded-2xl border border-slate-700 hover:border-brand-primary transition-colors"
+                >
+                  <div className="flex items-center justify-center h-16 w-16 bg-slate-700 rounded-full mb-6">
+                    {cap.icon}
+                  </div>
+                  <h3 className="text-xl font-bold text-white mb-2">{cap.title}</h3>
+                  <p className="text-slate-400 mb-4 font-medium">{cap.subtitle}</p>
+                  <ul className="space-y-2 text-slate-400 list-disc list-inside">
+                    {cap.description.map((item, i) => <li key={i}>{item}</li>)}
+                  </ul>
+                </motion.div>
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
   );
-}
+};
+
+export default Capabilities;

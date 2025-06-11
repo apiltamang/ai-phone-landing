@@ -36,13 +36,13 @@ const Hero = () => {
                         initial={{ opacity: 0, scale: 0.8 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.8, delay: 0.2 }}
-                        className="hidden md:block"
+                        className="block"
                     >
                         <Player
                             autoplay
                             loop
-                            src={heroAnimation}
-                            style={{ height: '500px', width: '500px' }}
+                            src="https://lottie.host/bf442509-87df-4818-92cf-77f456e007aa/LrntrFeha6.json"
+                            style={{ height: '1000px', width: '1000px' }}
                         />
                     </motion.div>
                 </div>

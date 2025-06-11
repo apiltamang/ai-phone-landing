@@ -2,40 +2,47 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Bot, BrainCircuit, CalendarDays, PhoneForwarded, FileText, Blocks } from 'lucide-react';
+import { Player } from '@lottiefiles/react-lottie-player';
+import customerRepAnimation from '../assets/lottie/customer-rep.json';
+import scheduleAgent from '../assets/lottie/schedule-agent.json';
+import customFAQ from '../assets/lottie/custom-faq.json';
+import callFoward from '../assets/lottie/call-forward.json';
+import formFiller from '../assets/lottie/form-fill.json';
+import customIntegration from '../assets/lottie/custom-integration.json';
 
 const capabilities = [
   {
-    icon: <Bot size={32} className="text-brand-primary" />,
+    lottieAnimation: customerRepAnimation,
     title: "AI Customer Representative",
     subtitle: "Your 24/7 front-line support.",
     description: ["Answers common questions.", "Provides instant, friendly responses.", "Never misses a call."]
   },
   {
-    icon: <BrainCircuit size={32} className="text-brand-primary" />,
+    lottieAnimation: customFAQ,
     title: "Ingest & Understand Data",
     subtitle: "Learns from your business documents.",
     description: ["Understands FAQs, policies, and product info.", "Provides accurate, context-aware answers."]
   },
   {
-    icon: <CalendarDays size={32} className="text-brand-primary" />,
+    lottieAnimation: scheduleAgent,
     title: "Appointment Scheduling",
     subtitle: "Books meetings intelligently.",
     description: ["Integrates with your calendar.", "Detects and avoids scheduling conflicts."]
   },
   {
-    icon: <PhoneForwarded size={32} className="text-brand-primary" />,
+    lottieAnimation: callFoward,
     title: "Smart Call Forwarding",
     subtitle: "Routes calls to the right person.",
     description: ["Understands caller intent.", "Connects to internal departments seamlessly."]
   },
   {
-    icon: <FileText size={32} className="text-brand-primary" />,
+    lottieAnimation: formFiller,
     title: "Auto-Fill Forms",
     subtitle: "Captures information from conversations.",
     description: ["Populates CRM fields from caller responses.", "Reduces manual data entry."]
   },
   {
-    icon: <Blocks size={32} className="text-brand-primary" />,
+    lottieAnimation: customIntegration,
     title: "Custom AI Integrations",
     subtitle: "Connects to your existing tools.",
     description: ["Uses webhooks and APIs for custom workflows.", "Extends functionality to any system."]
@@ -77,7 +84,17 @@ const Capabilities = () => {
                     className="bg-slate-800 p-8 rounded-2xl border border-slate-700 hover:border-brand-primary transition-colors"
                 >
                   <div className="flex items-center justify-center h-16 w-16 bg-slate-700 rounded-full mb-6">
-                    {cap.icon}
+                    {/* 2. Conditionally render the Lottie Player or the icon */}
+                    {cap.lottieAnimation ? (
+                        <Player
+                            autoplay
+                            loop
+                            src={cap.lottieAnimation}
+                            style={{ height: '64px', width: '64px' }} // Make player fit the container
+                        />
+                    ) : (
+                        cap.icon
+                    )}
                   </div>
                   <h3 className="text-xl font-bold text-white mb-2">{cap.title}</h3>
                   <p className="text-slate-400 mb-4 font-medium">{cap.subtitle}</p>

@@ -4,8 +4,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 
 const faqs = [
-  { q: "How long does setup take?", a: "Setup is incredibly fast. You can sign up, connect your phone number, and configure your AI agent in under 15 minutes." },
-  { q: "What phone systems is this compatible with?", a: "Our AI add-on is designed to be universally compatible with any business phone line, including VoIP and traditional landlines, with no complex hardware changes." },
+  { q: "How long does setup take?", a: "Setup is incredibly fast. You can sign up, connect your phone number, and configure your AI agent in about 1-2 business days." },
+  { q: "What phone systems is this compatible with?", a: "Our AI add-on is designed to be universally compatible with the included VoIP package. No hardware changes or addons are required." },
   { q: "Can the AI understand industry-specific jargon?", a: "Yes. You can upload your own documents, glossaries, and FAQs, allowing the AI to learn your specific terminology and provide accurate, context-aware responses." },
   { q: "Is my business data secure?", a: "Absolutely. We use end-to-end encryption and follow industry best practices for data security and privacy. Your data is used only to power your AI agent." },
   { q: "What happens if the AI can't answer a question?", a: "You can set custom rules for escalation. If the AI is unable to handle a request, it can seamlessly forward the call to a specific person or department as you've defined." }
